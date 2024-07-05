@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-07-03T09:51:01 IST" name="Default suite" finished-at="2024-07-03T09:51:05 IST" duration-ms="4345">
+  <suite started-at="2024-07-05T09:51:53 IST" name="Default suite" finished-at="2024-07-05T09:51:57 IST" duration-ms="4211">
     <groups>
     </groups>
-    <test started-at="2024-07-03T09:51:01 IST" name="Default test" finished-at="2024-07-03T09:51:05 IST" duration-ms="4345">
-      <class name="testScript.AdminUserStatusTest">
-        <test-method is-config="true" signature="initializeBrowser()[pri:0, instance:testScript.AdminUserStatusTest@506ae4d4]" started-at="2024-07-03T09:51:01 IST" name="initializeBrowser" finished-at="2024-07-03T09:51:03 IST" duration-ms="2745" status="PASS">
+    <test started-at="2024-07-05T09:51:53 IST" name="Default test" finished-at="2024-07-05T09:51:57 IST" duration-ms="4211">
+      <class name="testScript.ManagePagesSearchAndDeleteTest">
+        <test-method is-config="true" signature="initializeBrowser()[pri:0, instance:testScript.ManagePagesSearchAndDeleteTest@506ae4d4]" started-at="2024-07-05T09:51:53 IST" name="initializeBrowser" finished-at="2024-07-05T09:51:55 IST" duration-ms="2667" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeBrowser -->
-        <test-method signature="verifyTheUserIsAbleToChangeTheUserStatus()[pri:0, instance:testScript.AdminUserStatusTest@506ae4d4]" started-at="2024-07-03T09:51:03 IST" name="verifyTheUserIsAbleToChangeTheUserStatus" finished-at="2024-07-03T09:51:05 IST" duration-ms="1534" status="PASS">
+        <test-method signature="verifyTheUserIsAbleToSearchAndDeleteInManagePages()[pri:0, instance:testScript.ManagePagesSearchAndDeleteTest@506ae4d4]" started-at="2024-07-05T09:51:55 IST" name="verifyTheUserIsAbleToSearchAndDeleteInManagePages" finished-at="2024-07-05T09:51:57 IST" duration-ms="1482" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyTheUserIsAbleToChangeTheUserStatus -->
-      </class> <!-- testScript.AdminUserStatusTest -->
+        </test-method> <!-- verifyTheUserIsAbleToSearchAndDeleteInManagePages -->
+      </class> <!-- testScript.ManagePagesSearchAndDeleteTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
