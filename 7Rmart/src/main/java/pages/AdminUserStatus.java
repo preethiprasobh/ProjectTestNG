@@ -5,8 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.WebElementsUtility;
+
 public class AdminUserStatus {
 WebDriver driver;
+WebElementsUtility webelementsutility=new WebElementsUtility();
 public AdminUserStatus(WebDriver driver)
 {
 	this.driver=driver;
@@ -20,12 +23,9 @@ public AdminUserStatus(WebDriver driver)
 public void clickOnAdminUser()
 {
 	adminuserlink.click();
+	webelementsutility.assertElementDisplayed(adminheader);
 }
 
-public boolean isAdminUserPageLoaded()
-{
-	return adminheader.isDisplayed();
-}
 public void getCurrentUserStatusInStatus()
 {
 	String statusText = statusinstatus.getText();
@@ -35,7 +35,7 @@ public void getCurrentUserStatusInStatus()
 
 public void clickOnStatusIcon()
 {
-	
+	webelementsutility.assertElementEnabled(statusicon);
 	statusicon.click();
 
 }

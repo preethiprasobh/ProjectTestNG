@@ -6,8 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.WebElementsUtility;
+
 public class ManageContact {
 	WebDriver driver;
+	WebElementsUtility webelementsutility=new WebElementsUtility();
 	public ManageContact(WebDriver driver)
 	{
 		this.driver=driver;
@@ -29,32 +32,27 @@ public class ManageContact {
 	public void clickOnManageContact()
 	{
 		managecontact.click();
+		webelementsutility.assertElementDisplayed(headercontactus);
 	}
-	public boolean IsContactUsPageLoaded()
-	{
-		return headercontactus.isDisplayed();
-	}
+	
 	public void clickOnUpdateIcon()
 	{
 		updateicon.click();
+		webelementsutility.assertElementDisplayed(headercontactusinformations);
 	}
-	public boolean IsContactUsInformationPageIsLoaded()
-	{
-		return headercontactusinformations.isDisplayed();
-	}
-	public void updateExistingContactInformation()
+	
+	public void updateExistingContactInformation(String phonenumber,String email,String address,String deliverytime,String deliverychargelimit)
 	{
 		phonenumberfield.clear();
-		phonenumberfield.sendKeys("7863676ihuh");
+		phonenumberfield.sendKeys(phonenumber);
 		emailfield.clear();
-		emailfield.sendKeys("preethi1234@gmail.com");
+		emailfield.sendKeys(email);
 		addressfield.clear();
-		addressfield.sendKeys("Thiruvananthapuram");
+		addressfield.sendKeys(address);
 		deliverytimefield.clear();
-		deliverytimefield.sendKeys("12312423992432");
+		deliverytimefield.sendKeys(deliverytime);
 		deliverychargelimitfield.clear();
-		deliverychargelimitfield.sendKeys("345145f@#@#dgfdgf");
-		
+		deliverychargelimitfield.sendKeys(deliverychargelimit);
 		
 	}
 	public void clickOnUpdateButton()
@@ -63,8 +61,4 @@ public class ManageContact {
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();",updatebutton);
 	}
-	
-	
-	
-
 }

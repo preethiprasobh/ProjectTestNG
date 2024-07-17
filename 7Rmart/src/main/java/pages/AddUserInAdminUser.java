@@ -4,10 +4,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
+import utilities.PageUtility;
+import utilities.WebElementsUtility;
 
 public class AddUserInAdminUser {
 	WebDriver driver;
+	WebElementsUtility webelementsutility=new WebElementsUtility();
+	PageUtility pageutility=new PageUtility();
 	public AddUserInAdminUser(WebDriver driver)
 	{
 		this.driver=driver;
@@ -20,24 +23,26 @@ public class AddUserInAdminUser {
 		@FindBy(xpath="//input[@id='password']")private WebElement passwordfield ;
 		@FindBy(xpath="//select[@id='user_type']")private WebElement dropdownforusertype ;
 		@FindBy(xpath="//button[@name='Create']")private WebElement redsavebutton ;
+		@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']")private WebElement alertbox ;
 		
 		public void clickOnNewButton()
 		{
 			rednewbutton.click();
+			webelementsutility.assertElementDisplayed(adminuserpageheader);
 		}
-		public boolean isAdminUsersInformationPageLoaded()
-		{
-			return adminuserpageheader.isDisplayed();
-		}
+		
 		public void enterAdminUserInformations(String username1,String password1,String usertype)
 		{
+			
 			usernamefield.sendKeys(username1);
 			passwordfield.sendKeys(password1);
-			Select select=new Select(dropdownforusertype);
-			select.selectByValue(usertype);
+			pageutility.selectByValue(dropdownforusertype, usertype);
+			
 		}
 		public void clickOnSaveButton()
 		{
 			redsavebutton.click();
+			webelementsutility.assertElementDisplayed(alertbox);
 		}
+		
 }

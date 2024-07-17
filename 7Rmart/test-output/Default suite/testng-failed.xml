@@ -3,12 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testScript.ManagePagesSearchAndDeleteTest">
+      <class name="testScript.LoginTest">
         <methods>
-          <include name="verifyTheUserIsAbleToSearchAndDeleteInManagePages"/>
+          <include name="driverQuitandClose"/>
+          <include name="verifyTheUserIsAbleToLoginUsingValidUsernameAndInvalidPassword"/>
           <include name="initializeBrowser"/>
         </methods>
-      </class> <!-- testScript.ManagePagesSearchAndDeleteTest -->
+      </class> <!-- testScript.LoginTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

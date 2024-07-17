@@ -5,9 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.WebElementsUtility;
+
 public class AddNews {
 	
 	WebDriver driver;
+	WebElementsUtility webelementsutility=new WebElementsUtility();
 	public AddNews(WebDriver driver)
 	{
 		this.driver=driver;
@@ -22,21 +25,17 @@ public class AddNews {
 		
 		public void clickOnManageNews()
 		{
-		managenews.click();	
+		managenews.click();
+		webelementsutility.assertElementDisplayed(headermanagenews);
 		}
 		
-		public boolean ismanagenewswindowloaded()
-		{
-			return headermanagenews.isDisplayed();
-		}
 		public void clickOnRedNewButton()
 		{
 			rednewbutton.click();
+			webelementsutility.assertElementDisplayed(headerenternewsinformation);
+			
 		}
-		public boolean isEnterNewsInformationPageLoaded()
-		{
-			return headerenternewsinformation.isDisplayed();
-		}
+		
 		public void enterNewsInTextField(String news)
 		{
 			newstextfield.sendKeys(news);
@@ -45,9 +44,6 @@ public class AddNews {
 		{
 			redsavebutton.click();
 		}
-		
-		
-		
 		
 
 }

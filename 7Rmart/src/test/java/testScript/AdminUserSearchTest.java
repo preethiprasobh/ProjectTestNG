@@ -1,19 +1,21 @@
 package testScript;
 
-import static org.testng.Assert.assertTrue;
+import java.io.IOException;
 
 import org.testng.annotations.Test;
 
+import baseClass.Base;
 import pages.AdminUserSearch;
 import pages.AdminUserStatus;
 import pages.LoginPage;
+import utilities.ExcelUtility;
 
 public class AdminUserSearchTest extends Base {
 	@Test
-	public void verifyTheUserIsAbleToSearchTheUser()
+	public void verifyTheUserIsAbleToSearchTheUser() throws IOException
 	{
-		String usernamevalue="admin";
-		String passwordvalue="admin";
+		String usernamevalue=ExcelUtility.getStringData(1, 0, "Login");
+		String passwordvalue=ExcelUtility.getStringData(1, 1, "Login");
 		LoginPage loginpage=new LoginPage(driver);
 		loginpage.enterUserNameOnUserNameField(usernamevalue);
 		loginpage.enterPasswordOnPasswordField(passwordvalue);
@@ -21,20 +23,15 @@ public class AdminUserSearchTest extends Base {
 		
 		AdminUserStatus adminuserstatus=new AdminUserStatus(driver);
 		adminuserstatus.clickOnAdminUser();
-		boolean isadminuserpageavailable=adminuserstatus.isAdminUserPageLoaded();
 		
 		AdminUserSearch adminusersearch=new AdminUserSearch(driver);
 		
-		String username="PreethiArun";
-		String usertype="admin";
+		String username=ExcelUtility.getStringData(1, 0, "AdminUserSearchData");
+		String usertype=ExcelUtility.getStringData(1, 1, "AdminUserSearchData");
 		adminusersearch.clickOnBlueSearchButton();
-		boolean isheadersearchadminusersavailable=adminusersearch.isSearchAdminUsersWindowLoaded();
 		adminusersearch.enterSearchDetails(username, usertype);
 		adminusersearch.clickOnRedSearchButton();
 		
-		
-		assertTrue(isadminuserpageavailable,"Admin User page is not loaded");
-		assertTrue(isheadersearchadminusersavailable,"Admin User search page is not loaded");
 	}
 
 }

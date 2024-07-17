@@ -4,10 +4,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
+
+
+import utilities.PageUtility;
+import utilities.WebElementsUtility;
 
 public class AddInSubCategory {
 	WebDriver driver;
+	PageUtility pageutility=new PageUtility();
+	WebElementsUtility webelementsutility=new WebElementsUtility();
 	public AddInSubCategory(WebDriver driver)
 	{
 		this.driver=driver;
@@ -22,33 +27,31 @@ public class AddInSubCategory {
 	@FindBy(xpath="//select[@class='form-control selectpicker']")private WebElement categorydropdown;
 	@FindBy(xpath="//input[@name='subcategory']")private WebElement subcategorytextfield;
 	@FindBy(xpath="//button[@name='create']")private WebElement savebutton;
+	@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']")private WebElement alertbox;
 	
 	public void clickOnManageCategory()
 	{
 		subcategory.click();
+		webelementsutility.assertElementDisplayed(headerlistsubcategories);
 	}
 	
-public boolean IsListSubCategoriesPageLoaded()
-{
-	return headerlistsubcategories.isDisplayed();
-}
+
 public void clickOnNewInListSubCategory()
 {
 	rednewbutton.click();
+	webelementsutility.assertElementDisplayed(headeraddsubcategory);
 }
-public boolean IsAddSubCategoryWindowLoaded()
-{
-	return headeraddsubcategory.isDisplayed();
-}
+
 public void enterDataInAddSubcategoryWindow(String categorydropdownvalue,String subcategorytextfieldvalue)
 {
-	Select select=new Select(categorydropdown);
-	select.selectByValue(categorydropdownvalue);
 	
+	pageutility.selectByValue(categorydropdown, categorydropdownvalue);
 	subcategorytextfield.sendKeys(subcategorytextfieldvalue);
 }
 public void clickOnSaveButton()
 {
 	savebutton.click();
+	webelementsutility.assertElementDisplayed(alertbox);
 }
+
 }

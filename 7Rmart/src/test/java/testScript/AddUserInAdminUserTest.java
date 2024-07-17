@@ -1,20 +1,22 @@
 package testScript;
 
-import static org.testng.Assert.assertTrue;
+import java.io.IOException;
 
 import org.testng.annotations.Test;
 
+import baseClass.Base;
 import pages.AddUserInAdminUser;
 import pages.AdminUserStatus;
 import pages.LoginPage;
+import utilities.ExcelUtility;
 
 public class AddUserInAdminUserTest extends Base {
 
 	@Test
-	public void verifyTheUserIsAbleToAddUserInAdminUser()
+	public void verifyTheUserIsAbleToAddUserInAdminUser() throws IOException
 	{
-		String usernamevalue="admin";
-		String passwordvalue="admin";
+		String usernamevalue=ExcelUtility.getStringData(1, 0, "Login");
+		String passwordvalue=ExcelUtility.getStringData(1, 1, "Login");
 		LoginPage loginpage=new LoginPage(driver);
 		loginpage.enterUserNameOnUserNameField(usernamevalue);
 		loginpage.enterPasswordOnPasswordField(passwordvalue);
@@ -23,25 +25,18 @@ public class AddUserInAdminUserTest extends Base {
 		
 		AdminUserStatus adminuserstatus=new AdminUserStatus(driver);
 		adminuserstatus.clickOnAdminUser();
-		boolean isadminuserpageavailable=adminuserstatus.isAdminUserPageLoaded();
+		
 		
 		AddUserInAdminUser adduserinadminuser=new AddUserInAdminUser(driver);
 		adduserinadminuser.clickOnNewButton();
-		boolean isadminuserinformationpageavailable=adduserinadminuser.isAdminUsersInformationPageLoaded();
 		
-		String username1="PreethiArun";
-		String password1="abcd123";
-		String usertype="admin";
+		
+		String username1=ExcelUtility.getStringData(1, 0, "AddUserInAdminUserData");
+		String password1=ExcelUtility.getStringData(1, 1, "AddUserInAdminUserData");
+		String usertype=ExcelUtility.getStringData(1, 2, "AddUserInAdminUserData");
 		
 		adduserinadminuser.enterAdminUserInformations(username1, password1, usertype);
 		adduserinadminuser.clickOnSaveButton();
-		
-		
-		
-		assertTrue(isadminuserpageavailable,"Admin User page is not loaded");
-		assertTrue(isadminuserinformationpageavailable,"Admin User Information page is not loaded");
-		
-		
 		
 	}
 }

@@ -7,8 +7,11 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.PageUtility;
+
 public class UpdateInManageCategory {
 	WebDriver driver;
+	PageUtility pageutility=new PageUtility();
 	public UpdateInManageCategory(WebDriver driver)
 	{
 		this.driver=driver;
@@ -46,11 +49,11 @@ public class UpdateInManageCategory {
 		public void enterCategoryInformation(String category)
 		{
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			Actions actions = new Actions(driver);
+			
 			categoryfield.sendKeys(category);
 			System.out.println("category set");
 			
-			actions.contextClick(selectgroupsitem);
+			pageutility.actionClick(driver,selectgroupsitem );
 			System.out.println("selectgroupsitem performed successfully");
 			
 			if (showontopmenuyes.isSelected()) {

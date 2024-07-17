@@ -4,10 +4,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
+
+import utilities.PageUtility;
+import utilities.WebElementsUtility;
 
 public class AdminUserSearch {
 	WebDriver driver;
+	WebElementsUtility webelementsutility=new WebElementsUtility();
+	PageUtility pageutility=new PageUtility();
 	public AdminUserSearch(WebDriver driver)
 	{
 		this.driver=driver;
@@ -21,16 +25,13 @@ public class AdminUserSearch {
 		public void clickOnBlueSearchButton()
 		{
 			bluesearchbutton.click();
+			webelementsutility.assertElementDisplayed(headersearchadminusers);
 		}
-		public boolean isSearchAdminUsersWindowLoaded()
-		{
-			return headersearchadminusers.isDisplayed();
-		}
+		
 		public void enterSearchDetails(String username,String usertype)
 		{
 			username2.sendKeys(username);
-			Select select=new Select(dropdownusertype2);
-			select.selectByValue(usertype);
+			pageutility.selectByValue(dropdownusertype2, usertype);
 		}
 		public void clickOnRedSearchButton()
 		{

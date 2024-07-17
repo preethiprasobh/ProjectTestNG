@@ -1,35 +1,33 @@
 package testScript;
 
-import static org.testng.Assert.assertTrue;
+import java.io.IOException;
 
 import org.testng.annotations.Test;
 
+import baseClass.Base;
 import pages.AdminUserStatus;
 import pages.LoginPage;
+import utilities.ExcelUtility;
 
 public class AdminUserStatusTest extends Base {
 	
 	@Test
-	public void verifyTheUserIsAbleToChangeTheUserStatus()
+	public void verifyTheUserIsAbleToChangeTheUserStatus() throws IOException
 	{
-		String usernamevalue="admin";
-		String passwordvalue="admin";
+		String usernamevalue=ExcelUtility.getStringData(1, 0, "Login");
+		String passwordvalue=ExcelUtility.getStringData(1, 1, "Login");
 		LoginPage loginpage=new LoginPage(driver);
 		loginpage.enterUserNameOnUserNameField(usernamevalue);
 		loginpage.enterPasswordOnPasswordField(passwordvalue);
 		loginpage.clickOnSignInButton();
-		boolean ishomepageavailable=loginpage.isHomePageLoaded();
 		
 		
 		AdminUserStatus adminuserstatus=new AdminUserStatus(driver);
 		adminuserstatus.clickOnAdminUser();
-		boolean isadminuserpageavailable=adminuserstatus.isAdminUserPageLoaded();
+		
 		adminuserstatus.getCurrentUserStatusInStatus();
 		adminuserstatus.clickOnStatusIcon();
 		
-		
-		assertTrue(ishomepageavailable,"Page is not loaded when user gives valid credentials");
-		assertTrue(isadminuserpageavailable,"Admin User page is not loaded");
 	}
 
 }

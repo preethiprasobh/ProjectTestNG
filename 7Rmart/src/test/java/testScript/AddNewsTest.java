@@ -1,18 +1,20 @@
 package testScript;
 
-import static org.testng.Assert.assertTrue;
+import java.io.IOException;
 
 import org.testng.annotations.Test;
 
+import baseClass.Base;
 import pages.AddNews;
 import pages.LoginPage;
+import utilities.ExcelUtility;
 
 public class AddNewsTest extends Base {
 	@Test
-	public void verifyTheUserIsAbleToAddNews()
+	public void verifyTheUserIsAbleToAddNews() throws IOException
 	{
-		String usernamevalue="admin";
-		String passwordvalue="admin";
+		String usernamevalue=ExcelUtility.getStringData(1, 0, "Login");
+		String passwordvalue=ExcelUtility.getStringData(1, 1, "Login");
 		LoginPage loginpage=new LoginPage(driver);
 		loginpage.enterUserNameOnUserNameField(usernamevalue);
 		loginpage.enterPasswordOnPasswordField(passwordvalue);
@@ -20,17 +22,13 @@ public class AddNewsTest extends Base {
 		
 		AddNews addnews=new AddNews(driver);
 		addnews.clickOnManageNews();
-		boolean ismanagenewswindowavailable=addnews.ismanagenewswindowloaded();
-		
+	
 		addnews.clickOnRedNewButton();
-		boolean isenterNewsInformationPageavailable=addnews.isEnterNewsInformationPageLoaded();
-		String news="hello,welcome everyone.Have a great day";
+		
+		String news=ExcelUtility.getStringData(1, 0, "AddNewsData");
 		addnews.enterNewsInTextField(news);
-		addnews.clickOnSaveButton();
+		addnews.clickOnSaveButton();	
 		
-		
-		assertTrue(ismanagenewswindowavailable,"Manage News Window is not Loaded");
-		assertTrue(isenterNewsInformationPageavailable,"Enter News Information Pages is not Loaded");
 	}
 
 }
