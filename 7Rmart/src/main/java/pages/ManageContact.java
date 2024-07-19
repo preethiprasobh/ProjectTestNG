@@ -32,13 +32,23 @@ public class ManageContact {
 	public void clickOnManageContact()
 	{
 		managecontact.click();
-		webelementsutility.assertElementDisplayed(headercontactus);
+		
+	}
+	public boolean isHeaderContactUsVisible()
+	{
+		boolean is_header_contactus_available=webelementsutility.isElementDisplayed(headercontactus);
+		return is_header_contactus_available;
 	}
 	
 	public void clickOnUpdateIcon()
 	{
 		updateicon.click();
-		webelementsutility.assertElementDisplayed(headercontactusinformations);
+		
+	}
+	public boolean isHeaderContactUsInformationsVisible()
+	{
+		boolean is_header_contactus_information_available=webelementsutility.isElementDisplayed(headercontactusinformations);
+		return is_header_contactus_information_available;
 	}
 	
 	public void updateExistingContactInformation(String phonenumber,String email,String address,String deliverytime,String deliverychargelimit)

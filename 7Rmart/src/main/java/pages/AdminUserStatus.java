@@ -23,7 +23,12 @@ public AdminUserStatus(WebDriver driver)
 public void clickOnAdminUser()
 {
 	adminuserlink.click();
-	webelementsutility.assertElementDisplayed(adminheader);
+	
+}
+public boolean isAdminHeaderVisible()
+{
+	boolean is_admin_header_available=webelementsutility.isElementDisplayed(adminheader);
+	return is_admin_header_available;
 }
 
 public void getCurrentUserStatusInStatus()
@@ -32,10 +37,15 @@ public void getCurrentUserStatusInStatus()
 	System.out.println("current status of the user:"+statusText);
 	
 }
+public boolean isStatusIconVisible()
+{
+	boolean is_status_icon_available=webelementsutility.isElementDisplayed(statusicon);
+	return is_status_icon_available;
+}
 
 public void clickOnStatusIcon()
 {
-	webelementsutility.assertElementEnabled(statusicon);
+	
 	statusicon.click();
 
 }

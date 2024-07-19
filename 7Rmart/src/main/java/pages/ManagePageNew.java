@@ -2,8 +2,6 @@ package pages;
 
 import java.awt.AWTException;
 
-import javax.swing.Action;
-
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,9 +11,12 @@ import org.openqa.selenium.support.PageFactory;
 import constants.Constants;
 import utilities.FileUploadUtility;
 import utilities.WaitUtility;
+import utilities.WebElementsUtility;
 
 public class ManagePageNew {
 	WebDriver driver;
+	WebElementsUtility webelementsutility=new WebElementsUtility();
+	WaitUtility waitutility=new WaitUtility();
 	FileUploadUtility fileuploadutilities =new FileUploadUtility();
 	public ManagePageNew(WebDriver driver)
 	{
@@ -40,25 +41,31 @@ public class ManagePageNew {
 	
 	public void managePagesMoreInfolinkClick()
 	{
-		managepagesmoreinfo.click();	
+		managepagesmoreinfo.click();
+		
 	}
-	public boolean IsManagePageLoaded()
+	public boolean isNewButtonInManagePageVisible()
 	{
-		return  newbuttonmangepage.isDisplayed();
-	}
+		boolean is_new_button_manage_page_available=webelementsutility.isElementDisplayed(newbuttonmangepage);
+		return is_new_button_manage_page_available;
+	} 
+	
 	public void clickOnNewButton()
 	{
 		newbuttonmangepage.click();
+		
 
 	}
-	public boolean IsAddPagesWindowLoaded()
+	public boolean isAddPageWindowVisible()
 	{
-		return addpageswindow.isDisplayed();
-		
-	}
+		boolean is_add_page_window_available=webelementsutility.isElementDisplayed(addpageswindow);
+		return is_add_page_window_available;
+	} 
+	
+	
 	public void enerPageInformation(String titledata,String descriptiondata,String pagedata)
 	{
-		WaitUtility waitutility=new WaitUtility();
+		
 		waitutility.waitForElement(driver,title);
 		System.out.println("Add page window loaded");
 		title.sendKeys(titledata);
@@ -71,30 +78,29 @@ public class ManagePageNew {
 	}
 	public void clickOnAddImage() throws AWTException
 	{
-		WaitUtility waitutility=new WaitUtility();
+		
 		//waitutility.waitForElementToBeClickable(driver,imagebutton);
 		
-		fileuploadutilities.fileUploadUsingSendKeys(imagebutton,Constants.TESTDATAFILEImAGEMANAGEPAGESADD);
+		fileuploadutilities.fileUploadUsingSendKeys(imagebutton,Constants.TESTDATAFILEIMAGEMANAGEPAGESADD);
 		waitutility.waitForElement(driver, imagepreview);
 		System.out.println("Image is Added");
 	}
 	public void clickOnSaveButton()
 	{
-		//WaitUtility waitutility=new WaitUtility();
-		//waitutility.waitForElementToBeClickable(driver,savebutton);
+		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();",savebutton);
-		//savebutton.click();
+		
 		System.out.println("Save button is clicked");
 		driver.navigate().back();
 		
+		
 	}
-	public boolean IsAlertBoxLoaded()
+	public boolean isAlertBoxVisible()
 	{
-		return alertbox.isDisplayed();
-	}
-	
-	
+		boolean is_alert_box_available=webelementsutility.isElementDisplayed(alertbox);
+		return is_alert_box_available;
+	} 	
 	
 }
 

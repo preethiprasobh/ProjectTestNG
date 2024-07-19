@@ -33,13 +33,13 @@ public class LoginPage {
 	public void clickOnSignInButton()
 	{
 		signin.click();
-		if (webelementsutility.isElementDisplayed(dashboardvalue)) {
-			webelementsutility.assertElementDisplayed(dashboardvalue);
-	    } else 
-	    {
-	        // Check if alerticon is displayed (failed login)
-	    	webelementsutility.assertElementDisplayed(alerticon);
-	    }
+		
+		
+	}
+	public boolean isDashboardVisible()
+	{
+		boolean isdashboardavailable=webelementsutility.isElementDisplayed(dashboardvalue);
+		return isdashboardavailable;
 	}
 	
 }

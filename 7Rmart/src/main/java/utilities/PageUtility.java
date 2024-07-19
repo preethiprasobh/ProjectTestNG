@@ -17,6 +17,11 @@ public class PageUtility {
 		actions.contextClick(element);
 		
 	}
+	public void actionDoubleClick(WebDriver driver,WebElement element)
+	{
+		Actions actions = new Actions(driver);
+		actions.doubleClick(element).build().perform();
+	}
 	
 	
 

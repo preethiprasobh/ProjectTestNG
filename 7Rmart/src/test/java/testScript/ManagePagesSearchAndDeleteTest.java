@@ -7,7 +7,8 @@ import java.io.IOException;
 import org.testng.annotations.Test;
 
 import baseClass.Base;
-import pages.ListPages;
+import constants.Constants;
+import constants.Messages;
 import pages.LoginPage;
 
 import pages.ManagePageNew;
@@ -19,8 +20,8 @@ public class ManagePagesSearchAndDeleteTest extends Base {
 
 	public void verifyTheUserIsAbleToSearchAndDeleteInManagePages() throws IOException
 	{
-		String usernamevalue=ExcelUtility.getStringData(1, 0, "Login");
-		String passwordvalue=ExcelUtility.getStringData(1, 1, "Login");
+		String usernamevalue=ExcelUtility.getStringData(1, 0,Constants.LOGIN_PAGE);
+		String passwordvalue=ExcelUtility.getStringData(1, 1,Constants.LOGIN_PAGE);
 		LoginPage loginpage=new LoginPage(driver);
 		loginpage.enterUserNameOnUserNameField(usernamevalue);
 		loginpage.enterPasswordOnPasswordField(passwordvalue);
@@ -28,24 +29,20 @@ public class ManagePagesSearchAndDeleteTest extends Base {
 		
 		ManagePageNew managepagenew=new ManagePageNew(driver);
 		managepagenew.managePagesMoreInfolinkClick();
-		boolean ismanagepagesavailable=managepagenew.IsManagePageLoaded();
 		
-		String search=ExcelUtility.getStringData(0, 1, "ManagePagesSearchAndDeleteData");
+		String search=ExcelUtility.getStringData(0, 1,Constants.MANAGE_PAGES_SEARCH_AND_DELETE_DATA);
 		
 		ManagePagesSearchAndDelete managepagessearchanddelete=new ManagePagesSearchAndDelete(driver);
 		managepagessearchanddelete.clickOnSearchButton();
-		
-		boolean issearchpageavailable=managepagessearchanddelete.IsSearchWindowLoaded();
+		boolean isRedDeleteButtonLoaded=managepagessearchanddelete.isRedDeleteButtonVisible();
 		
 		managepagessearchanddelete.searchAction(search);
-		boolean issearchedresultavailable=managepagessearchanddelete.IsSearchResultLoaded();
+		boolean isSearchedResultCountLoaded=managepagessearchanddelete.isSearchedResultCountVisible();
 		
 		managepagessearchanddelete.deleteTheSearchedResultValue();
 		
+		assertTrue(isRedDeleteButtonLoaded,Messages.RED_DELETE_BUTTON_IS_NOT_LOADED);
+		assertTrue(isSearchedResultCountLoaded,Messages.SEARCHED_RESULT_COUNT_IS_NOT_LOADED);
 		
-		assertTrue(ismanagepagesavailable,"ManagePages window is not loaded");
-			assertTrue(issearchpageavailable,"Manage pages search window is not loaded");
-		assertTrue(issearchedresultavailable,"Searched result not found");
-		
-	}
+			}
 }

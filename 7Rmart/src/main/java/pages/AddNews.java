@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,15 +27,29 @@ public class AddNews {
 		public void clickOnManageNews()
 		{
 		managenews.click();
-		webelementsutility.assertElementDisplayed(headermanagenews);
+		
 		}
+		public boolean isHeaderManageNewsVisible()
+		{
+			boolean isHeadermanagenewsavailable=webelementsutility.isElementDisplayed(headermanagenews);
+			return isHeadermanagenewsavailable;
+		}
+		
 		
 		public void clickOnRedNewButton()
 		{
-			rednewbutton.click();
-			webelementsutility.assertElementDisplayed(headerenternewsinformation);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+	        js.executeScript("arguments[0].click();",rednewbutton );
+			//rednewbutton.click();
+			
 			
 		}
+		public boolean isHeaderEnterNewsInformationVisible()
+		{
+			boolean isheaderenternewsinformationavailable=webelementsutility.isElementDisplayed(headerenternewsinformation);
+			return isheaderenternewsinformationavailable;
+		}
+		
 		
 		public void enterNewsInTextField(String news)
 		{

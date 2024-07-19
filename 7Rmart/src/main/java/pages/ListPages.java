@@ -19,9 +19,14 @@ public class ListPages {
 	@FindBy(xpath="//h1[@class='m-0 text-dark']")private WebElement headinglistpages;
 	@FindBy(xpath="//a[@onclick=\"return confirm('Do you want to delete this Page?')\"]")private WebElement deletebuttoninlistpages;
 	
+	public boolean isHeaderListPagesVisible()
+	{
+		boolean is_header_list_pages_available=webelementsutility.isElementDisplayed(headinglistpages);
+		return is_header_list_pages_available;
+	} 
 	public void clickOnDeleteInListPages()
 	{
-		webelementsutility.assertElementDisplayed(headinglistpages);
+		
 		deletebuttoninlistpages.click();
 		driver.switchTo().alert().accept();
 		

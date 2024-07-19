@@ -11,6 +11,7 @@ public class AddUserInAdminUser {
 	WebDriver driver;
 	WebElementsUtility webelementsutility=new WebElementsUtility();
 	PageUtility pageutility=new PageUtility();
+	
 	public AddUserInAdminUser(WebDriver driver)
 	{
 		this.driver=driver;
@@ -28,8 +29,14 @@ public class AddUserInAdminUser {
 		public void clickOnNewButton()
 		{
 			rednewbutton.click();
-			webelementsutility.assertElementDisplayed(adminuserpageheader);
+			
 		}
+		public boolean isHeaderAdminUserPageVisible()
+		{
+			boolean is_header_admin_user_page_available=webelementsutility.isElementDisplayed(adminuserpageheader);
+			return is_header_admin_user_page_available;
+		}
+		
 		
 		public void enterAdminUserInformations(String username1,String password1,String usertype)
 		{
@@ -42,7 +49,12 @@ public class AddUserInAdminUser {
 		public void clickOnSaveButton()
 		{
 			redsavebutton.click();
-			webelementsutility.assertElementDisplayed(alertbox);
+			
+		}
+		public boolean isAlertBoxVisible()
+		{
+			boolean is_alert_box_available=webelementsutility.isElementDisplayed(alertbox);
+			return is_alert_box_available;
 		}
 		
 }

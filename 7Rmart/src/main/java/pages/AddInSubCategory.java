@@ -1,5 +1,4 @@
 package pages;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -32,16 +31,26 @@ public class AddInSubCategory {
 	public void clickOnManageCategory()
 	{
 		subcategory.click();
-		webelementsutility.assertElementDisplayed(headerlistsubcategories);
+		
+	}
+	public boolean isHeaderListSubCategoriesVisible()
+	{
+		boolean isheaderlistsubcategoriesavailable=webelementsutility.isElementDisplayed(headerlistsubcategories);
+		return isheaderlistsubcategoriesavailable;
 	}
 	
 
 public void clickOnNewInListSubCategory()
 {
 	rednewbutton.click();
-	webelementsutility.assertElementDisplayed(headeraddsubcategory);
+	
 }
 
+public boolean isHeaderAddSubCategoryVisible()
+{
+	boolean isheaderaddsubcategoryavailable=webelementsutility.isElementDisplayed(headeraddsubcategory);
+	return isheaderaddsubcategoryavailable;
+}
 public void enterDataInAddSubcategoryWindow(String categorydropdownvalue,String subcategorytextfieldvalue)
 {
 	
@@ -51,7 +60,12 @@ public void enterDataInAddSubcategoryWindow(String categorydropdownvalue,String 
 public void clickOnSaveButton()
 {
 	savebutton.click();
-	webelementsutility.assertElementDisplayed(alertbox);
+	
+}
+public boolean isAlertBoxVisible()
+{
+	boolean isalertboxavailable=webelementsutility.isElementDisplayed(alertbox);
+	return isalertboxavailable;
 }
 
 }

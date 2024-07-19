@@ -7,9 +7,9 @@
   <test thread-count="5" name="Test">
     <classes>
       
-      <class name="testScript.LoginTest">
+      <class name="testScript.ManagePageNewTest">
       <methods>
-		  <include name="verifyTheUserIsAbleToLoginUsingValidCredentials"></include> <!--to execute only a particular testcase -->
+		  <include name="verifyTheUserIsAbleToEnterIntoManagePages"></include> <!--to execute only a particular testcase -->
 		  
 	  </methods>
 	  </class>

@@ -25,8 +25,14 @@ public class AdminUserSearch {
 		public void clickOnBlueSearchButton()
 		{
 			bluesearchbutton.click();
-			webelementsutility.assertElementDisplayed(headersearchadminusers);
+			
 		}
+		public boolean isHeaderSearchAdminUserVisible()
+		{
+			boolean is_header_search_admin_user_available=webelementsutility.isElementDisplayed(headersearchadminusers);
+			return is_header_search_admin_user_available;
+		}
+		
 		
 		public void enterSearchDetails(String username,String usertype)
 		{
