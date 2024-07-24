@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import baseClass.Base;
+import automation_core.Base;
 import constants.Constants;
 import constants.Messages;
 import pages.ListPages;
@@ -15,7 +15,7 @@ import pages.ManagePageNew;
 import utilities.ExcelUtility;
 
 public class ListPagesTest extends Base {
-	@Test
+	@Test(groups={"sanity","regression"})
 	public void verifyTheUserIsAbleToEnterAndDeleteListProducts() throws IOException
 	{
 		

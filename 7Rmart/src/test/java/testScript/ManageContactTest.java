@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import baseClass.Base;
+import automation_core.Base;
 import constants.Constants;
 import constants.Messages;
 import pages.LoginPage;
@@ -14,7 +14,7 @@ import pages.ManageContact;
 import utilities.ExcelUtility;
 
 public class ManageContactTest extends Base {
-	@Test
+	@Test(groups={"smoke","regression"})
 	public void verifyTheUserIsAbleToAccessAndUpdateContactUs() throws IOException
 	{
 		String usernamevalue=ExcelUtility.getStringData(1, 0,Constants.LOGIN_PAGE);

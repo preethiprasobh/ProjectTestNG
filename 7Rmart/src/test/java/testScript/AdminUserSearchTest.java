@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import baseClass.Base;
+import automation_core.Base;
 import constants.Constants;
 import constants.Messages;
 import pages.AdminUserSearch;
@@ -15,7 +15,7 @@ import pages.LoginPage;
 import utilities.ExcelUtility;
 
 public class AdminUserSearchTest extends Base {
-	@Test
+	@Test(groups="sanity")
 	public void verifyTheUserIsAbleToSearchTheUser() throws IOException
 	{
 		String usernamevalue=ExcelUtility.getStringData(1, 0,Constants.LOGIN_PAGE);

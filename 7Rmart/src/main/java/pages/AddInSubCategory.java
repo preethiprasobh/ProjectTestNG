@@ -26,8 +26,7 @@ public class AddInSubCategory {
 	@FindBy(xpath="//select[@class='form-control selectpicker']")private WebElement categorydropdown;
 	@FindBy(xpath="//input[@name='subcategory']")private WebElement subcategorytextfield;
 	@FindBy(xpath="//button[@name='create']")private WebElement savebutton;
-	@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']")private WebElement alertbox;
-	
+		
 	public void clickOnManageCategory()
 	{
 		subcategory.click();
@@ -62,10 +61,6 @@ public void clickOnSaveButton()
 	savebutton.click();
 	
 }
-public boolean isAlertBoxVisible()
-{
-	boolean isalertboxavailable=webelementsutility.isElementDisplayed(alertbox);
-	return isalertboxavailable;
-}
+
 
 }

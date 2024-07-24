@@ -4,7 +4,7 @@ import static org.testng.Assert.assertTrue;
 
 import org.testng.annotations.Test;
 
-import baseClass.Base;
+import automation_core.Base;
 import constants.Constants;
 import constants.Messages;
 import pages.AddUserInAdminUser;
@@ -14,8 +14,8 @@ import utilities.ExcelUtility;
 import utilities.RandomDataUtility;
 
 public class AddUserInAdminUserTest extends Base {
-
-	@Test
+	
+	@Test(groups={"smoke","regression"})
 	public void verifyTheUserIsAbleToAddUserInAdminUser() 
 	{
 		String usernamevalue=ExcelUtility.getStringData(1, 0,Constants.LOGIN_PAGE);
@@ -32,7 +32,7 @@ public class AddUserInAdminUserTest extends Base {
 		adduserinadminuser.clickOnNewButton();
 		boolean is_header_admin_user_page_loaded=adduserinadminuser.isHeaderAdminUserPageVisible();
 		
-		String firstname=RandomDataUtility.getFirstName();
+		String firstname=RandomDataUtility.getFirstName();//
 		String lastname=RandomDataUtility.getLastName();
 		String username1=firstname;
 		String password1=firstname+"."+lastname;

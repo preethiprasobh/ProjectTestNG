@@ -6,12 +6,13 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import baseClass.Base;
+import automation_core.Base;
 import constants.Constants;
 import constants.Messages;
 import pages.AddNews;
 import pages.LoginPage;
 import utilities.ExcelUtility;
+import utilities.RandomDataUtility;
 
 public class AddNewsTest extends Base {
 	@Test
@@ -31,8 +32,8 @@ public class AddNewsTest extends Base {
 		addnews.clickOnRedNewButton();
 		boolean is_header_enter_news_information_loaded=addnews.isHeaderEnterNewsInformationVisible();
 		
-		String news=ExcelUtility.getStringData(1, 0,Constants.NEWS_DATA);
-		addnews.enterNewsInTextField(news);
+		String newsdata=RandomDataUtility.getNews();//Random data using faker class
+		addnews.enterNewsInTextField(newsdata);
 		addnews.clickOnSaveButton();	
 		
 		assertTrue(is_header_manage_news_loaded,Messages.HEADER_MANAGE_NEWS_NOT_LOADED);

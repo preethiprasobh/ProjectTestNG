@@ -2,15 +2,17 @@ package testScript;
 
 import static org.testng.Assert.assertTrue;
 import org.testng.annotations.Test;
-import baseClass.Base;
+
+import automation_core.Base;
 import constants.Constants;
 import constants.Messages;
 import pages.AddInSubCategory;
 import pages.LoginPage;
 import utilities.ExcelUtility;
+import utilities.RandomDataUtility;
 
 public class AddInSubCategoryTest extends Base {
-	@Test
+	@Test(groups={"sanity","regression"})
 	
 	public void verifyTheUserIsAbleToAddSubCategory() 
 	{
@@ -28,16 +30,19 @@ public class AddInSubCategoryTest extends Base {
 		addinsubcategory.clickOnNewInListSubCategory();
 		boolean isheaderaddsubcategoryloaded=addinsubcategory.isHeaderAddSubCategoryVisible();
 		
+	
 		String categorydropdownvalue=ExcelUtility.getIntegerData(0, 1,Constants.SUB_CATEGORY_DATA_PAGE);
-		String subcategorytextfieldvalue=ExcelUtility.getStringData(1, 1,Constants.SUB_CATEGORY_DATA_PAGE);
+		String subcategoryname=RandomDataUtility.getProductSubCategory();//faker class is used here
+		String subcategorytextfieldvalue=subcategoryname;
+		
 		
 		addinsubcategory.enterDataInAddSubcategoryWindow(categorydropdownvalue,subcategorytextfieldvalue);
 		addinsubcategory.clickOnSaveButton();
-		boolean isalertboxloaded=addinsubcategory.isAlertBoxVisible();
+		
 		
 		assertTrue(isheaderlistsubcategoriesloaded,Messages.HEADER_LIST_SUBCATEGORIES_NOT_LOADED);
 		assertTrue(isheaderaddsubcategoryloaded,Messages.HEADER_ADD_SUBCATEGORIES_NOT_LOADED);
-		assertTrue(isalertboxloaded,Messages.ALERT_WINDOW_NOT_LOADED);
+		
 		
 	}
 

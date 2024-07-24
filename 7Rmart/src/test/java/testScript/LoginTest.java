@@ -5,7 +5,7 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import baseClass.Base;
+import automation_core.Base;
 import constants.Constants;
 import constants.Messages;
 import dataProvider.DataProviders;
@@ -13,7 +13,7 @@ import pages.LoginPage;
 import utilities.ExcelUtility;
 
 public class LoginTest extends Base {
-	@Test
+	@Test(groups={"smoke","regression"})//if we are using multiple group
 	public void verifyTheUserIsAbleToLoginUsingValidCredentials() throws IOException
 	{
 		
@@ -27,7 +27,7 @@ public class LoginTest extends Base {
 		
 	}
 	
-	@Test(dataProvider="InvalidUserCredentials",dataProviderClass=DataProviders.class)
+	@Test(groups="regression",dataProvider="InvalidUserCredentials",dataProviderClass=DataProviders.class)
 	public void verifyUserLoginWithInvalidCredentials(String username,String password)
 	{
 		LoginPage loginpage=new LoginPage(driver);

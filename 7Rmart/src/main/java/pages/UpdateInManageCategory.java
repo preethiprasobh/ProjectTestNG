@@ -3,11 +3,13 @@ package pages;
 import java.awt.AWTException;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import constants.Constants;
 import utilities.FileUploadUtility;
 import utilities.PageUtility;
 import utilities.WaitUtility;
@@ -19,6 +21,7 @@ public class UpdateInManageCategory {
 	PageUtility pageutility=new PageUtility();
 	WaitUtility waitutility=new WaitUtility();
 	FileUploadUtility fileuploadutility=new FileUploadUtility();
+	
 	public UpdateInManageCategory(WebDriver driver)
 	{
 		this.driver=driver;
@@ -61,32 +64,36 @@ public class UpdateInManageCategory {
 			return is_header_edit_category_available;
 		}
 		
-		public void enterCategoryInformation(String category) throws AWTException
+		public void enterCategoryInformation(String category) 
 		{
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			
 			categoryfield.clear();
 			categoryfield.sendKeys(category);
 			System.out.println("category set");
-			//pageutility.actionClick(driver,selectgroupsitem);
-			selectgroupsitem.click();
 			
+			waitutility.waitForElementToBeClickable(driver, selectgroupsitem);
+			//selectgroupsitem.click();
+			pageutility.actionClick(driver,selectgroupsitem);
+			//selectgroupsitem.sendKeys(Keys.RETURN);
 			
 			System.out.println("selectgroupsitem performed successfully");
 			
-			//pageutility.actionClick(driver, choosefilebutton);
+			waitutility.waitForElementToBeClickable(driver, choosefilebutton);
+			pageutility.actionClick(driver, choosefilebutton);
 			//choosefilebutton.click();
-			//fileuploadutility.fileUploadUsingRobotClass(choosefilebutton,"TESTDATAFILEIMAGEMANAGEPAGESADD" );
 			
-			fileuploadutility.fileUploadUsingSendKeys(choosefilebutton, "TESTDATAFILEIMAGEMANAGEPAGESADD");
+			
+			fileuploadutility.fileUploadUsingSendKeys(choosefilebutton, Constants.TESTDATA_FILEIMAGE_UPDATEIN_MANAGECATEGORY);
 						
 			waitutility.waitForElement(driver,imagepreview );
 			//webelementsutility.assertElementDisplayed(imagepreview);
 			
 			if (webelementsutility.isElementSelected(showontopmenuyes)) {
 				System.out.println("Show on Top Menu Yes is already selected.");
-				showontopmenuno.click();
-				//js.executeScript("arguments[0].click();",showontopmenuno );
+				//showontopmenuno.click();
+				js.executeScript("arguments[0].click();",showontopmenuno );
+				System.out.println("No is selected");
 			}
 			else 
 			{
@@ -95,20 +102,27 @@ public class UpdateInManageCategory {
 				
 			if(webelementsutility.isElementSelected(showonleftmenuyes))
 			{
-				showonleftmenuno.click();
+				System.out.println("yes is already selected");
+				js.executeScript("arguments[0].click();",showonleftmenuno );
+				
 			}
 			else
 			{
-				showonleftmenuyes.click();
+				js.executeScript("arguments[0].click();",showonleftmenuyes );
+				//showonleftmenuyes.click();
 			}
 			
 			
 		}
 		public void clickOnUpdateButton()
 		{
-			updatebutton.click();
-			//driver.navigate().back();
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			
+			js.executeScript("arguments[0].click();",updatebutton );
+			
+			driver.navigate().back();
 		}
+		
 		
 
 }

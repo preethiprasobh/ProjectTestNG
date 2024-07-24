@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import baseClass.Base;
+import automation_core.Base;
 import constants.Constants;
 import constants.Messages;
 import pages.LoginPage;
@@ -16,7 +16,7 @@ import pages.ManagePagesSearchAndDelete;
 import utilities.ExcelUtility;
 
 public class ManagePagesSearchAndDeleteTest extends Base {
-	@Test
+	@Test(groups={"sanity","regression"})
 
 	public void verifyTheUserIsAbleToSearchAndDeleteInManagePages() throws IOException
 	{

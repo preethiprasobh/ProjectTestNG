@@ -1,8 +1,10 @@
-package baseClass;
+package automation_core;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -17,14 +19,21 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
+import constants.Constants;
 import utilities.WaitUtility;
 
 public class Base {
 	public WebDriver driver;
+	public Properties prop;
+	public FileInputStream file;
 	@BeforeMethod(alwaysRun=true)
 	@Parameters("browser")
 	public void initializeBrowser(@Optional("chrome")String browser) throws Exception
 	{
+		prop=new Properties();
+		file=new FileInputStream(Constants.CONFIGFILE);
+		prop.load(file);
+		
 		if(browser.equalsIgnoreCase("chrome"))
 		{
 			driver=new ChromeDriver();
@@ -41,8 +50,7 @@ public class Base {
 			{
 			throw new Exception("Browser is not correct");
 			}
-	
-		driver.get("https://groceryapp.uniqassosiates.com/admin");
+		driver.get(prop.getProperty("url"));
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(WaitUtility.IMPLICIT_WAIT));
 		driver.manage().window().maximize();
 	

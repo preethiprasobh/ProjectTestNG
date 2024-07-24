@@ -41,7 +41,7 @@ public class ExcelUtility {
 		sh=w.getSheet(sheet);
 		Row r=sh.getRow(a);
 		Cell c=r.getCell(b);
-		int x=(int)c.getNumericCellValue();//double to integer type casting
+		int x=(int)c.getNumericCellValue();//double to integer type castingt
 		return String.valueOf(x);//integer to string
 		}
 			catch(Exception e)

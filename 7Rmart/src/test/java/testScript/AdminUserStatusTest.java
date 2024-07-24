@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import baseClass.Base;
+import automation_core.Base;
 import constants.Constants;
 import constants.Messages;
 import pages.AdminUserStatus;
@@ -15,7 +15,7 @@ import utilities.ExcelUtility;
 
 public class AdminUserStatusTest extends Base {
 	
-	@Test
+	@Test(groups="regression")
 	public void verifyTheUserIsAbleToChangeTheUserStatus() throws IOException
 	{
 		String usernamevalue=ExcelUtility.getStringData(1, 0,Constants.LOGIN_PAGE);

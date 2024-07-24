@@ -2,12 +2,9 @@ package testScript;
 
 import static org.testng.Assert.assertTrue;
 
-import java.awt.AWTException;
-import java.io.IOException;
-
 import org.testng.annotations.Test;
 
-import baseClass.Base;
+import automation_core.Base;
 import constants.Constants;
 import constants.Messages;
 import pages.LoginPage;
@@ -15,8 +12,8 @@ import pages.UpdateInManageCategory;
 import utilities.ExcelUtility;
 
 public class UpdateInManageCategoryTest extends Base {
-	@Test
-	public void verifyTheUserIsAbleToUpdateInManageCategory() throws IOException, AWTException
+	@Test(groups={"smoke","regression"})
+	public void verifyTheUserIsAbleToUpdateInManageCategory() 
 	{
 		String usernamevalue=ExcelUtility.getStringData(1, 0,Constants.LOGIN_PAGE);
 		String passwordvalue=ExcelUtility.getStringData(1, 1,Constants.LOGIN_PAGE);

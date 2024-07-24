@@ -7,7 +7,7 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import baseClass.Base;
+import automation_core.Base;
 import constants.Constants;
 import constants.Messages;
 import pages.LoginPage;
@@ -15,7 +15,7 @@ import pages.ManagePageNew;
 import utilities.ExcelUtility;
 
 public class ManagePageNewTest extends Base {
-	@Test
+	@Test(groups={"regression","smoke"})
 	public void verifyTheUserIsAbleToEnterIntoManagePages() throws IOException, AWTException
 	{
 		String usernamevalue=ExcelUtility.getStringData(1, 0,Constants.LOGIN_PAGE);
@@ -30,7 +30,7 @@ public class ManagePageNewTest extends Base {
 		boolean is_new_button_in_manage_page_loaded=managepagenew.isNewButtonInManagePageVisible();
 		
 		managepagenew.clickOnNewButton();
-		boolean is_add_page_window_loaded=managepagenew.isNewButtonInManagePageVisible();
+		boolean is_add_page_window_loaded=managepagenew.isAddPageWindowVisible();
 		String titledata=ExcelUtility.getStringData(0, 1, Constants.MANAGE_PAGES_NEW_DATA);
 		String descriptiondata=ExcelUtility.getStringData(1, 1,Constants.MANAGE_PAGES_NEW_DATA);
 		String pagedata=ExcelUtility.getStringData(2, 1,Constants.MANAGE_PAGES_NEW_DATA);

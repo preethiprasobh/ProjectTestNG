@@ -25,7 +25,7 @@ public class ManagePageNew {
 	}
 	@FindBy(xpath="/html/body/div/div[1]/section/div/div/div[1]/div/a")private WebElement managepagesmoreinfo;
 	
-	@FindBy(xpath="//a[@class='btn btn-rounded btn-danger']")private WebElement newbuttonmangepage;
+	@FindBy(xpath="//a[@class='btn btn-rounded btn-danger' and text()=' New']")private WebElement newbuttonmangepage;
 	
 	@FindBy(xpath="//h1[text()='Add Pages']")private WebElement addpageswindow;
 	
