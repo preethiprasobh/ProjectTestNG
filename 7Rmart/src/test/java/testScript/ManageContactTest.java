@@ -1,9 +1,8 @@
 package testScript;
 
-import static org.testng.Assert.assertTrue;
-
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automation_core.Base;
@@ -41,8 +40,8 @@ public class ManageContactTest extends Base {
 		managecontact.updateExistingContactInformation(phonenumber,email,address,deliverytime,deliverychargelimit);
 		managecontact.clickOnUpdateButton();
 		
-		assertTrue(is_header_contactus_loaded,Messages.HEADER_CONTACTUS_IS_NOT_LOADED);
-		assertTrue(is_header_contactus_informations_loaded,Messages.HEADER_CONTACTUS_INFORMATION_IS_NOT_LOADED);
+		Assert.assertTrue(is_header_contactus_loaded,Messages.HEADER_CONTACTUS_IS_NOT_LOADED);
+		Assert.assertTrue(is_header_contactus_informations_loaded,Messages.HEADER_CONTACTUS_INFORMATION_IS_NOT_LOADED);
 			}
 
 }

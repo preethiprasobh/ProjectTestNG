@@ -1,9 +1,8 @@
 package testScript;
 
-import static org.testng.Assert.assertTrue;
-
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automation_core.Base;
@@ -36,8 +35,8 @@ public class AddNewsTest extends Base {
 		addnews.enterNewsInTextField(newsdata);
 		addnews.clickOnSaveButton();	
 		
-		assertTrue(is_header_manage_news_loaded,Messages.HEADER_MANAGE_NEWS_NOT_LOADED);
-		assertTrue(is_header_enter_news_information_loaded,Messages.HEADER_ENTER_NEWS_INFORMATION_NOT_LOADED);
+		Assert.assertTrue(is_header_manage_news_loaded,Messages.HEADER_MANAGE_NEWS_NOT_LOADED);
+		Assert.assertTrue(is_header_enter_news_information_loaded,Messages.HEADER_ENTER_NEWS_INFORMATION_NOT_LOADED);
 		
 		
 	}

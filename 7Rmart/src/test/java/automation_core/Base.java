@@ -16,7 +16,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Optional;
+
 import org.testng.annotations.Parameters;
 
 import constants.Constants;
@@ -28,7 +28,7 @@ public class Base {
 	public FileInputStream file;
 	@BeforeMethod(alwaysRun=true)
 	@Parameters("browser")
-	public void initializeBrowser(@Optional("chrome")String browser) throws Exception
+	public void initializeBrowser(String browser) throws Exception
 	{
 		prop=new Properties();
 		file=new FileInputStream(Constants.CONFIGFILE);
@@ -63,7 +63,7 @@ public void driverQuitandClose(ITestResult result) throws IOException  //only ne
 		{
 			takesScreenshots(result);
 		}
-	//driver.quit();
+	driver.quit();
 
 }
 	public void takesScreenshots(ITestResult result) throws IOException

@@ -1,9 +1,8 @@
 package testScript;
 
-import static org.testng.Assert.assertTrue;
-
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automation_core.Base;
@@ -41,8 +40,8 @@ public class ManagePagesSearchAndDeleteTest extends Base {
 		
 		managepagessearchanddelete.deleteTheSearchedResultValue();
 		
-		assertTrue(isRedDeleteButtonLoaded,Messages.RED_DELETE_BUTTON_IS_NOT_LOADED);
-		assertTrue(isSearchedResultCountLoaded,Messages.SEARCHED_RESULT_COUNT_IS_NOT_LOADED);
+		Assert.assertTrue(isRedDeleteButtonLoaded,Messages.RED_DELETE_BUTTON_IS_NOT_LOADED);
+		Assert.assertTrue(isSearchedResultCountLoaded,Messages.SEARCHED_RESULT_COUNT_IS_NOT_LOADED);
 		
 			}
 }

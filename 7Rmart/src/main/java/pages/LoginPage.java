@@ -19,7 +19,7 @@ public class LoginPage {
 	@FindBy(xpath="//input[@placeholder='Password']")private WebElement password;
 	@FindBy(xpath="//button[@type='submit']")private WebElement signin;
 	@FindBy(xpath="//li[@class='breadcrumb-item active']")private WebElement dashboardvalue;
-	@FindBy(xpath="//i[@class='icon fas fa-ban']")private WebElement alerticon;
+	@FindBy(xpath="//h5[text()=\" Alert!\"]")private WebElement alerticon;
 	
 	public void enterUserNameOnUserNameField(String usernamevalue)
 	{
@@ -40,6 +40,11 @@ public class LoginPage {
 	{
 		boolean isdashboardavailable=webelementsutility.isElementDisplayed(dashboardvalue);
 		return isdashboardavailable;
+	}
+	public boolean isAlertboxVisible()
+	{
+		boolean alertavailable=webelementsutility.isElementDisplayed(alerticon);
+		return alertavailable;
 	}
 	
 }

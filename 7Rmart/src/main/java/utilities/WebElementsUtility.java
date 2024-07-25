@@ -1,7 +1,5 @@
 package utilities;
 
-import static org.testng.Assert.assertTrue;
-
 import org.openqa.selenium.WebElement;
 
 public class WebElementsUtility {
@@ -25,11 +23,6 @@ public class WebElementsUtility {
     	boolean isenabled=element.isEnabled();
       return isenabled;
     }
-    /*public boolean isElementDisplayed(WebElement element) {
-        try {
-            return element.isDisplayed();
-        } catch (Exception e) {
-            return false; // Return false if element is not found or not displayed
-        }*/
+    
 
     }

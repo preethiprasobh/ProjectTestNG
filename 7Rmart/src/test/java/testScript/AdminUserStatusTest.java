@@ -1,9 +1,7 @@
 package testScript;
-
-import static org.testng.Assert.assertTrue;
-
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automation_core.Base;
@@ -34,8 +32,8 @@ public class AdminUserStatusTest extends Base {
 		boolean is_status_icon_loaded=adminuserstatus.isStatusIconVisible();
 		adminuserstatus.clickOnStatusIcon();
 		
-		assertTrue(is_admin_header_loaded,Messages.HEADER_ADMIN_IS_NOT_LOADED);
-		assertTrue(is_status_icon_loaded,Messages.STATUS_ICON_IS_NOT_LOADED);
+		Assert.assertTrue(is_admin_header_loaded,Messages.HEADER_ADMIN_IS_NOT_LOADED);
+		Assert.assertTrue(is_status_icon_loaded,Messages.STATUS_ICON_IS_NOT_LOADED);
 		
 	}
 

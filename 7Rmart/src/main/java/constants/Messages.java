@@ -1,7 +1,8 @@
 package constants;
 
 public class Messages {
-	public static final String LOGIN_WITH_INVALID_CREDENTIALS="Webpage is not loaded-Invalid credentials";
+	public static final String LOGIN_WITH_VALID_CREDENTIALS="Webpage is not loaded using valid credentials";
+	public static final String LOGIN_WITH_INVALID_CREDENTIALS="Webpage is loaded with Invalid credentials";
 	public static final String HEADER_ADMIN_USER_NOT_LOADED="Header 'Admin User' is not loaded";
 	public static final String HEADER_LIST_SUBCATEGORIES_NOT_LOADED="Header 'List Subcategories' is not loaded";
 	public static final String HEADER_ADD_SUBCATEGORIES_NOT_LOADED="Header 'Add SubCategories' is not loaded";

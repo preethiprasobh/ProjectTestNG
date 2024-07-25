@@ -1,6 +1,6 @@
 package testScript;
 
-import static org.testng.Assert.assertTrue;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automation_core.Base;
@@ -40,8 +40,8 @@ public class AddInSubCategoryTest extends Base {
 		addinsubcategory.clickOnSaveButton();
 		
 		
-		assertTrue(isheaderlistsubcategoriesloaded,Messages.HEADER_LIST_SUBCATEGORIES_NOT_LOADED);
-		assertTrue(isheaderaddsubcategoryloaded,Messages.HEADER_ADD_SUBCATEGORIES_NOT_LOADED);
+		Assert.assertTrue(isheaderlistsubcategoriesloaded,Messages.HEADER_LIST_SUBCATEGORIES_NOT_LOADED);
+		Assert.assertTrue(isheaderaddsubcategoryloaded,Messages.HEADER_ADD_SUBCATEGORIES_NOT_LOADED);
 		
 		
 	}

@@ -1,10 +1,8 @@
 package testScript;
-
-import static org.testng.Assert.assertTrue;
-
 import java.awt.AWTException;
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automation_core.Base;
@@ -40,9 +38,9 @@ public class ManagePageNewTest extends Base {
 		managepagenew.clickOnSaveButton();
 		boolean is_alertbox_loaded=managepagenew.isAlertBoxVisible();
 		
-		assertTrue(is_new_button_in_manage_page_loaded,Messages.MANAGE_PAGES_NEW_BUTTON_IS_NOT_LOADED);	
-		assertTrue(is_add_page_window_loaded,Messages.ADD_PAGES_WINDOW_IS_NOT_LOADED);	
-		assertTrue(is_alertbox_loaded,Messages.ALERT_WINDOW_NOT_LOADED);	
+		Assert.assertTrue(is_new_button_in_manage_page_loaded,Messages.MANAGE_PAGES_NEW_BUTTON_IS_NOT_LOADED);	
+		Assert.assertTrue(is_add_page_window_loaded,Messages.ADD_PAGES_WINDOW_IS_NOT_LOADED);	
+		Assert.assertTrue(is_alertbox_loaded,Messages.ALERT_WINDOW_NOT_LOADED);	
 	}
 	
 

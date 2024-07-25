@@ -1,7 +1,6 @@
 package testScript;
 
-import static org.testng.Assert.assertTrue;
-
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automation_core.Base;
@@ -42,7 +41,7 @@ public class AddUserInAdminUserTest extends Base {
 		adduserinadminuser.enterAdminUserInformations(username1, password1, usertype);
 		adduserinadminuser.clickOnSaveButton();
 		
-		assertTrue(is_header_admin_user_page_loaded,Messages.HEADER_ADMIN_USER_NOT_LOADED);
+		Assert.assertTrue(is_header_admin_user_page_loaded,Messages.HEADER_ADMIN_USER_NOT_LOADED);
 		
 	}
 }

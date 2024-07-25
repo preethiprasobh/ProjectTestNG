@@ -3,17 +3,16 @@
 <suite name="Suite">
 	<listeners>
 	<listener class-name="generatereport.Listeners"></listener>
-</listeners>
+	</listeners>
   <test thread-count="5" name="Test">
-    <classes>
-      
-      <class name="testScript.ManagePageNewTest">
-      <methods>
-		  <include name="verifyTheUserIsAbleToEnterIntoManagePages"></include> <!--to execute only a particular testcase -->
-		  
-	  </methods>
-	  </class>
-    </classes>
+    
+      <parameter name="browser" value="chrome"></parameter>
+      <classes>
+		  <class name="testScript.AddInSubCategoryTest"></class>
+		  <class name="testScript.AddNewsTest"></class>
+		</classes>
+	
+  
   </test> <!-- Test -->
 </suite> <!-- Suite -->
 

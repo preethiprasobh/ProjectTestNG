@@ -1,7 +1,6 @@
 package testScript;
 
-import static org.testng.Assert.assertTrue;
-
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automation_core.Base;
@@ -34,8 +33,8 @@ public class UpdateInManageCategoryTest extends Base {
 		
 		updateinmanagecategory.clickOnUpdateButton();
 		
-		assertTrue(is_header_list_categories_loaded,Messages.HEADER_LIST_CATEGORIES_NOT_LOADED);
-		assertTrue(is_header_edit_category_loaded,Messages.HEADER_EDIT_CATEGORY_NOT_LOADED);
+		Assert.assertTrue(is_header_list_categories_loaded,Messages.HEADER_LIST_CATEGORIES_NOT_LOADED);
+		Assert.assertTrue(is_header_edit_category_loaded,Messages.HEADER_EDIT_CATEGORY_NOT_LOADED);
 		
 	}
 

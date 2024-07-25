@@ -1,9 +1,8 @@
 package testScript;
 
-import static org.testng.Assert.assertTrue;
-
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automation_core.Base;
@@ -38,7 +37,7 @@ public class AdminUserSearchTest extends Base {
 		adminusersearch.enterSearchDetails(username, usertype);
 		adminusersearch.clickOnRedSearchButton();
 		
-		assertTrue(is_header_search_admin_user_loaded,Messages.HEADER_SEARCH_ADMIN_USER_NOT_LOADED);
+		Assert.assertTrue(is_header_search_admin_user_loaded,Messages.HEADER_SEARCH_ADMIN_USER_NOT_LOADED);
 	}
 
 }

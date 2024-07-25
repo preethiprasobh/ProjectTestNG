@@ -1,8 +1,7 @@
 package testScript;
-
-import static org.testng.Assert.assertFalse;
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automation_core.Base;
@@ -23,6 +22,8 @@ public class LoginTest extends Base {
 		loginpage.enterUserNameOnUserNameField(usernamevalue);
 		loginpage.enterPasswordOnPasswordField(passwordvalue);
 		loginpage.clickOnSignInButton();
+		boolean isdashboardavailable=loginpage.isDashboardVisible();
+		Assert.assertTrue(isdashboardavailable,Messages.LOGIN_WITH_VALID_CREDENTIALS);
 	
 		
 	}
@@ -34,9 +35,9 @@ public class LoginTest extends Base {
 		loginpage.enterUserNameOnUserNameField(username);
 		loginpage.enterPasswordOnPasswordField(password);
 		loginpage.clickOnSignInButton();
-		boolean actualresultlogin=loginpage.isDashboardVisible();
+		boolean isalertboxavailable=loginpage.isAlertboxVisible();
 		
-		assertFalse(actualresultlogin,Messages.LOGIN_WITH_INVALID_CREDENTIALS);
+		Assert.assertTrue(isalertboxavailable,Messages.LOGIN_WITH_INVALID_CREDENTIALS);
 	}
 	
 	

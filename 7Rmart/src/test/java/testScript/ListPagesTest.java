@@ -1,9 +1,8 @@
 package testScript;
 
-import static org.testng.Assert.assertTrue;
-
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automation_core.Base;
@@ -34,7 +33,7 @@ public class ListPagesTest extends Base {
 		boolean is_header_list_pages_loaded=listpages.isHeaderListPagesVisible();
 		listpages.clickOnDeleteInListPages();
 		
-		assertTrue(is_header_list_pages_loaded,Messages.HEADER_LIST_PAGES_IS_NOT_LOADED);
+		Assert.assertTrue(is_header_list_pages_loaded,Messages.HEADER_LIST_PAGES_IS_NOT_LOADED);
 
 }
 }

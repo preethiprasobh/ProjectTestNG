@@ -4,7 +4,7 @@ import java.io.File;
 
 public class Constants {	//contains path of images, xls file etc
 	public static final String CONFIGFILE=System.getProperty("user.dir")+File.separator+"src"+File.separator+"main"+File.separator+"resources"+File.separator+"config.properties";
-	public static final String TESTDATAFILE=System.getProperty("user.dir")+"//src//main//resources//TestData1.xlsx";
+	public static final String TESTDATAFILE=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData1.xlsx";
 	public static final String TESTDATAFILEIMAGEMANAGEPAGESADD=System.getProperty("user.dir")+"\\src\\test\\resources\\television.jpg";
 	public static final String TESTDATA_FILEIMAGE_UPDATEIN_MANAGECATEGORY=System.getProperty("user.dir")+"\\src\\test\\resources\\fridge.jpg";
 	public static final String LOGIN_PAGE="Login";
