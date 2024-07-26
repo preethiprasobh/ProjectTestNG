@@ -10,6 +10,7 @@
       <classes>
 		  <class name="testScript.AddInSubCategoryTest"></class>
 		  <class name="testScript.AddNewsTest"></class>
+		  <class name="testScript.ManageContactTest"></class>
 		</classes>
 	
   
