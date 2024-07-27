@@ -1,17 +1,17 @@
 package pages;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
+import utilities.PageUtility;
 import utilities.WebElementsUtility;
 
 public class AddNews {
 	
 	WebDriver driver;
 	WebElementsUtility webelementsutility=new WebElementsUtility();
+	PageUtility pageutility=new PageUtility();
 	public AddNews(WebDriver driver)
 	{
 		this.driver=driver;
@@ -38,10 +38,7 @@ public class AddNews {
 		
 		public void clickOnRedNewButton()
 		{
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-	        js.executeScript("arguments[0].click();",rednewbutton );
-			//rednewbutton.click();
-			
+			pageutility.javaScriptExecutor(driver, rednewbutton);
 			
 		}
 		public boolean isHeaderEnterNewsInformationVisible()

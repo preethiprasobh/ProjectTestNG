@@ -10,6 +10,7 @@ import utilities.WebElementsUtility;
 public class ManagePagesSearchAndDelete {
 	WebDriver driver;
 	WebElementsUtility webelementsutility=new WebElementsUtility();
+	
 	public ManagePagesSearchAndDelete(WebDriver driver)
 	{
 		this.driver=driver;
@@ -53,8 +54,7 @@ public class ManagePagesSearchAndDelete {
 	public void deleteTheSearchedResultValue()
 	{
 		reddeletebutton.click();
-		driver.switchTo().alert().accept();
-		
+		driver.switchTo().alert().accept();	
 	}
 
 }

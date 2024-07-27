@@ -1,8 +1,6 @@
 package pages;
 
 import java.awt.AWTException;
-
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import constants.Constants;
 import utilities.FileUploadUtility;
+import utilities.PageUtility;
 import utilities.WaitUtility;
 import utilities.WebElementsUtility;
 
@@ -18,6 +17,8 @@ public class ManagePageNew {
 	WebElementsUtility webelementsutility=new WebElementsUtility();
 	WaitUtility waitutility=new WaitUtility();
 	FileUploadUtility fileuploadutilities =new FileUploadUtility();
+	PageUtility pageutility=new PageUtility();
+	
 	public ManagePageNew(WebDriver driver)
 	{
 		this.driver=driver;
@@ -52,8 +53,7 @@ public class ManagePageNew {
 	
 	public void clickOnNewButton()
 	{
-		newbuttonmangepage.click();
-		
+		newbuttonmangepage.click();	
 
 	}
 	public boolean isAddPageWindowVisible()
@@ -69,32 +69,22 @@ public class ManagePageNew {
 		waitutility.waitForElement(driver,title);
 		System.out.println("Add page window loaded");
 		title.sendKeys(titledata);
-		//waitutility.waitForElementText(driver, description,  descriptiondata);
 		description.sendKeys(descriptiondata);
-		//waitutility.waitForElementText(driver, page,  pagedata);
 		page.sendKeys(pagedata);
-	//	waitutility.waitForElementText(driver, page,  pagedata);
 		System.out.println("information entered correctly");
 	}
 	public void clickOnAddImage() throws AWTException
 	{
-		
-		//waitutility.waitForElementToBeClickable(driver,imagebutton);
-		
+			
 		fileuploadutilities.fileUploadUsingSendKeys(imagebutton,Constants.TESTDATAFILEIMAGEMANAGEPAGESADD);
 		waitutility.waitForElement(driver, imagepreview);
 		System.out.println("Image is Added");
 	}
 	public void clickOnSaveButton()
 	{
-		
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();",savebutton);
-		
+		pageutility.javaScriptExecutor(driver, savebutton);
 		System.out.println("Save button is clicked");
-		driver.navigate().back();
-		
-		
+		driver.navigate().back();	
 	}
 	public boolean isAlertBoxVisible()
 	{

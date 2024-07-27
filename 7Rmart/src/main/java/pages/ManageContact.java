@@ -1,16 +1,18 @@
 package pages;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.PageUtility;
 import utilities.WebElementsUtility;
 
 public class ManageContact {
 	WebDriver driver;
 	WebElementsUtility webelementsutility=new WebElementsUtility();
+	PageUtility pageutility=new PageUtility();
+	
 	public ManageContact(WebDriver driver)
 	{
 		this.driver=driver;
@@ -68,7 +70,6 @@ public class ManageContact {
 	public void clickOnUpdateButton()
 	{
 		
-		JavascriptExecutor executor = (JavascriptExecutor) driver;
-        executor.executeScript("arguments[0].click();",updatebutton);
+		pageutility.javaScriptExecutor(driver, updatebutton);
 	}
 }

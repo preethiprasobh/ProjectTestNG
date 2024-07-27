@@ -26,6 +26,7 @@ public class Base {
 	public WebDriver driver;
 	public Properties prop;
 	public FileInputStream file;
+
 	@BeforeMethod(alwaysRun=true)
 	@Parameters("browser")
 	public void initializeBrowser(String browser) throws Exception
@@ -63,7 +64,7 @@ public void driverQuitandClose(ITestResult result) throws IOException  //only ne
 		{
 			takesScreenshots(result);
 		}
-	driver.quit();
+	//driver.quit();
 
 }
 	public void takesScreenshots(ITestResult result) throws IOException

@@ -1,5 +1,6 @@
 package utilities;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -22,7 +23,10 @@ public class PageUtility {
 		Actions actions = new Actions(driver);
 		actions.doubleClick(element).build().perform();
 	}
-	
-	
+	public void javaScriptExecutor(WebDriver driver,WebElement element)
+	{
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+    js.executeScript("arguments[0].click();",element);
 
+}
 }

@@ -31,7 +31,7 @@ public class AddUserInAdminUserTest extends Base {
 		adduserinadminuser.clickOnNewButton();
 		boolean is_header_admin_user_page_loaded=adduserinadminuser.isHeaderAdminUserPageVisible();
 		
-		String firstname=RandomDataUtility.getFirstName();//
+		String firstname=RandomDataUtility.getFirstName();
 		String lastname=RandomDataUtility.getLastName();
 		String username1=firstname;
 		String password1=firstname+"."+lastname;

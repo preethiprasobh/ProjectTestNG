@@ -32,7 +32,7 @@ public class AddInSubCategoryTest extends Base {
 		
 	
 		String categorydropdownvalue=ExcelUtility.getIntegerData(0, 1,Constants.SUB_CATEGORY_DATA_PAGE);
-		String subcategoryname=RandomDataUtility.getProductSubCategory();//faker class is used here
+		String subcategoryname=RandomDataUtility.getProductSubCategory();
 		String subcategorytextfieldvalue=subcategoryname;
 		
 		

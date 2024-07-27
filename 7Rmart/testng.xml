@@ -8,9 +8,8 @@
     
       <parameter name="browser" value="chrome"></parameter>
       <classes>
-		  <class name="testScript.AddInSubCategoryTest"></class>
-		  <class name="testScript.AddNewsTest"></class>
-		  <class name="testScript.ManageContactTest"></class>
+		 
+		  <class name="testScript.UpdateInManageCategoryTest"></class>
 		</classes>
 	
   
@@ -18,4 +17,3 @@
 </suite> <!-- Suite -->
 
 
-<!-- if we use exclude tag, except that method, other testcases will get executed -->
