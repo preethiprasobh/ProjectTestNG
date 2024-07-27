@@ -64,7 +64,7 @@ public void driverQuitandClose(ITestResult result) throws IOException  //only ne
 		{
 			takesScreenshots(result);
 		}
-	//driver.quit();
+	driver.quit();
 
 }
 	public void takesScreenshots(ITestResult result) throws IOException

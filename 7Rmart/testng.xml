@@ -9,7 +9,7 @@
       <parameter name="browser" value="chrome"></parameter>
       <classes>
 		 
-		  <class name="testScript.UpdateInManageCategoryTest"></class>
+		  <class name="testScript.ManagePageNewTest"></class>
 		</classes>
 	
   
