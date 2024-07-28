@@ -3,7 +3,7 @@ package utilities;
 import org.openqa.selenium.WebElement;
 
 public class WebElementsUtility {
-	// Method to check if a WebElement is displayed and assert
+	
     public boolean isElementDisplayed(WebElement element) {
     	
     	boolean isdisplayed=element.isDisplayed();
@@ -11,17 +11,27 @@ public class WebElementsUtility {
      
     }
 
-    // Method to check if a WebElement is selected and assert
+    
     public boolean isElementSelected(WebElement element) {
     	boolean isselected=element.isSelected();
     	return isselected;
        
     }
 
-    // Method to check if a WebElement is enabled and assert
+   
     public boolean isElementEnabled(WebElement element) {
     	boolean isenabled=element.isEnabled();
       return isenabled;
+    }
+    
+    public String getElementText(WebElement element) {
+    	String text=element.getText();
+        return text;
+    }
+    
+    public boolean isImageDisplayed(WebElement imageElement) {
+    	boolean isimagedisplayed=imageElement.isDisplayed();
+        return isimagedisplayed;
     }
     
 
