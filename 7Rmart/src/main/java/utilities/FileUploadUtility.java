@@ -18,7 +18,7 @@ public class FileUploadUtility {
 	public void fileUploadUsingRobotClass(WebElement element,String path)throws AWTException
 	{	
 		StringSelection s = new StringSelection(path);
-		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(s,null);//toolkit is a class and getdefaulttoolkit is a method
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(s,null);
 		Robot r = new Robot();
 		r.delay(250);
 

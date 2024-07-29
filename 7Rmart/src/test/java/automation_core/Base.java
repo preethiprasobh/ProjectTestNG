@@ -58,9 +58,9 @@ public class Base {
 				}
 	@AfterMethod
 	
-public void driverQuitandClose(ITestResult result) throws IOException  //only need failed testcases screenshots 
+public void driverQuitandClose(ITestResult result) throws IOException  
 {
-		if(result.getStatus()==ITestResult.FAILURE)//getStatus date type is integer here
+		if(result.getStatus()==ITestResult.FAILURE)
 		{
 			takesScreenshots(result);
 		}
@@ -70,8 +70,8 @@ public void driverQuitandClose(ITestResult result) throws IOException  //only ne
 	public void takesScreenshots(ITestResult result) throws IOException
 	{
 		TakesScreenshot takescreenshot=(TakesScreenshot) driver;
-		File screenshots=takescreenshot.getScreenshotAs(OutputType.FILE);//its in file type need to convert to image type
-		FileUtils.copyFile(screenshots, new File("./Screenshots/"+result.getName()+".png") );       //"./Screenshots/"creates a folder with this name
+		File screenshots=takescreenshot.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(screenshots, new File("./Screenshots/"+result.getName()+".png") );       
 	}
 }
 

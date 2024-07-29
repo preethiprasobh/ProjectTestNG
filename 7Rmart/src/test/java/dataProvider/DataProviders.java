@@ -4,9 +4,9 @@ import org.testng.annotations.DataProvider;
 
 public class DataProviders {
 	@DataProvider(name="InvalidUserCredentials")
-	public Object[][] verifyUserCredentialsData()//so return type is object
+	public Object[][] verifyUserCredentialsData()
 	{
-		Object data[][]=new Object[3][2];//object multi-dimensional array
+		Object data[][]=new Object[3][2];
 		
 		data[0][0]="56363";
 		data[0][1]="admin";
