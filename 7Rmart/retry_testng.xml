@@ -16,4 +16,3 @@
 </suite> <!-- Suite -->
 
 
-<!-- if we use exclude tag, except that method, other testcases will get executed -->

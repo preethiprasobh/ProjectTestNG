@@ -5,6 +5,7 @@
 		<run>
 			<include name="regression"></include>
 			<include name="smoke"></include>
+			<include name="sanity"></include>
 		</run>
 	</groups>
 	<listeners>

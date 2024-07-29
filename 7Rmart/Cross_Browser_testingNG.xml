@@ -10,7 +10,7 @@
       
       <class name="testScript.LoginTest">
       <methods>
-		  <include name="verifyTheUserIsAbleToLoginUsingValidCredentials"></include> <!--to execute only a particular testcase -->
+		  <include name="verifyTheUserIsAbleToLoginUsingValidCredentials"></include> 
 		  
 	  </methods>
 	  </class>
@@ -23,7 +23,7 @@
       
       <class name="testScript.LoginTest">
       <methods>
-		  <include name="verifyTheUserIsAbleToLoginUsingValidCredentials"></include> <!--to execute only a particular testcase -->
+		  <include name="verifyTheUserIsAbleToLoginUsingValidCredentials"></include> 
 		  
 	  </methods>
 	  </class>
