@@ -12,6 +12,7 @@ public class AddInSubCategory {
 	WebDriver driver;
 	PageUtility pageutility=new PageUtility();
 	WebElementsUtility webelementsutility=new WebElementsUtility();
+	
 	public AddInSubCategory(WebDriver driver)
 	{
 		this.driver=driver;
@@ -39,28 +40,28 @@ public class AddInSubCategory {
 	}
 	
 
-public void clickOnNewInListSubCategory()
-{
+	public void clickOnNewInListSubCategory()
+	{
 	rednewbutton.click();
 	
-}
+	}
 
-public boolean isHeaderAddSubCategoryVisible()
-{
+	public boolean isHeaderAddSubCategoryVisible()
+	{
 	boolean isheaderaddsubcategoryavailable=webelementsutility.isElementDisplayed(headeraddsubcategory);
 	return isheaderaddsubcategoryavailable;
-}
-public void enterDataInAddSubcategoryWindow(String categorydropdownvalue,String subcategorytextfieldvalue)
-{
+	}
+	public void enterDataInAddSubcategoryWindow(String categorydropdownvalue,String subcategorytextfieldvalue)
+	{
 	
 	pageutility.selectByValue(categorydropdown, categorydropdownvalue);
 	subcategorytextfield.sendKeys(subcategorytextfieldvalue);
-}
-public void clickOnSaveButton()
-{
+	}
+	public void clickOnSaveButton()
+	{
 	savebutton.click();
 	
-}
+	}
 
 
-}
+	}
